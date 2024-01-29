@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p class="day"></p>
+    <div>
+      <ul class="Clock">
+        <li class="heure">00</li>
+        <li class="minutes">00</li>
+        <li class="seconde">00</li>
+      </ul>
+    </div>
+    <script>
+      const hours = document.querySelector(".heure");
+      const minutes = document.querySelector(".minutes");
+      const secondes = document.querySelector(".seconde");
+      const days = document.querySelector(".day");
+      //console.log(hours);
+      //-------------------------------------
+      setInterval(() => {
+        let currentTime = new Date();
+        hours.innerHTML =
+          (currentTime.getHours() < 10 ? "0" : "") + currentTime.getHours();
+        minutes.innerHTML =
+          (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+        secondes.innerHTML =
+          (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+      }, 1000);
+      //---------------------------------------
+      const weekday = [
+        "Dimanche",
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi",
+        "Vendredi",
+        "Samedi",
+      ];
+      const d = new Date();
+      let day = weekday[d.getDay()].toUpperCase();
+      //console.log(day);
+      //--------------------------------------
+      const mont = [
+        "Janvier",
+        "Fevrier",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Aout",
+        "septembre",
+        "Octobre",
+        "Novembre",
+        "Decembre",
+      ];
+      const M = new Date();
+      const Month = mont[M.getMonth()].toUpperCase();
+      //console.log(Month);
+      //-------------------------------------
+      const Years = new Date();
+      const annee = Years.getFullYear();
+      //console.log(annee);
+      //------------------------------------
+      const jours = new Date();
+      const dah = jours.getDate();
+      //console.log(dah);
+      //-----------------------------------
+      //console.log(`TODAY IS ${day} ${dah} ${Month} ${annee}`);
+      days.innerHTML = `La Date Aujourd'hui est :<br> ${day} ${dah} ${Month} ${annee}`;
+    </script>
+  </body>
+</html>
